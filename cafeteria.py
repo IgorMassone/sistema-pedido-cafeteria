@@ -29,3 +29,20 @@ def calcular_preco(tipoBebida, tamanhoBebida, quantidade, verificaAluno):
 
 
 nome, tipoBebida, tamanhoBebida, quantidade, verificaAluno = receber_dados()
+preco_total, desconto = calcular_preco(tipoBebida, tamanhoBebida, quantidade, verificaAluno)
+
+def mostrar_resultado(nome, tipoBebida, tamanhoBebida, quantidade, preco_total, desconto):
+    print("-=-" * 20)
+    print(f"Cliente: {nome}")
+    print(f"Bebida: {tipoBebida}")
+    print(f"Tamanho: {tamanhoBebida}")
+    print(f"Quantidade: {quantidade}")
+    print(f"Desconto: R$ {desconto:.2f}")
+    print(f"Total: R$ {preco_total:.2f}")
+
+    if preco_total >= 20:
+        print("Pedido com brinde!")
+    else:
+        print("Pedido sem brinde.")
+
+mostrar_resultado(nome, tipoBebida, tamanhoBebida, quantidade, preco_total, desconto)

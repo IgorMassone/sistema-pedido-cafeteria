@@ -1,8 +1,27 @@
 def receber_dados():
     nome = input("Digite o nome do cliente: ")
-    tipoBebida = input("Digite o tipo de bebida: ").lower()
-    tamanhoBebida = input("Digite o tamanho da bebida: ")
-    quantidade = int(input("Digite a quantidade: "))
+
+    while True:
+        tipoBebida = input("Digite o tipo de bebida (cafe/capuccino/chocolate): ").lower()
+        if tipoBebida in precos:
+            break
+        print("Bebida inválida digite novamente: ")
+
+    while True:
+        tamanhoBebida = input("Digite o tamanho da bebida: ").upper()
+        if tamanhoBebida in ["P", "M", "G"]:
+            break
+        print("Tamanho inválido! Digite novamente")
+    
+    while True:
+        try:
+            quantidade = int(input("Digite a quantidade: "))
+            if quantidade > 0:
+                break
+            print("Quantidade deve ser maior que zero")
+        except ValueError:
+            print("Digite um número válido")
+        
     verificaAluno = input("É aluno da FIAP: ").lower()
 
     return nome, tipoBebida, tamanhoBebida, quantidade, verificaAluno
